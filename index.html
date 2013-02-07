@@ -52,9 +52,11 @@
 	
 	<script type="text/javascript">
 		$(document).ready( function () {
-			$('#accordion1, #accordion2').accordiom({
-				speed: 1000,
-				showFirstItem: true
+			$('#accordion1').accordiom();
+			
+			$('#accordion2').accordiom({
+				speed: 100,
+				showFirstItem: false
 			});
 			
 			//$('#accordion1').accordiom();

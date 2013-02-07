@@ -2,6 +2,7 @@
 
 Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
 
+[View the demo](https://github.com/simonboak/Accordiom/blob/master/index.html)
  
 
 ##Get Started
@@ -13,7 +14,7 @@ Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin an
 ```
 
 ###2. HTML markup
-
+```html
 	<div id="accordion1">
 		<div class="accordionButton"><h2>Item 1</h2></div>
 		<div class="accordionContent">
@@ -30,41 +31,41 @@ Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin an
 			<p>Item 3 Content</p>
 		</div>
 	</div>
-
+```
 
 ** The h2 tag isn't even needed - any HTML can be in the accordionButton and accordionContent.
 
 ###3. JavaScript
-
+```html
 	<script type="text/javascript">
 		$(document).ready( function () {
 			$('#accordion1').accordiom();
 		});
 	</script>
-
+```
 
 
 ##Full Options
 
 
-
+```javascript
 	$('#accordion1').accordiom({
 		speed: 500, // Set the animation speed. 0 gives not animation
 		showFirstItem: false, // Either show or hide the first item when loading
 		beforeChange: function (accordionButton) {}, // Callback function called on click of the accordionButton before an item is hidden or shown
 		afterChange: function (accordionButton) {} // Callback function called after change of item
 	});
-
+```
 
 ##Callbacks
 2 callback functions are defined in the options above. The argument passed to the function is the div with class .accordionButtom that was clicked on and can be used like this:
-
+```javascript
 	$('#accordion1').accordiom({
 		afterChange: function (accordionButton) {
 			$(accordionButton).next('.accordionContent').append('Opened!');
 		}
 	});
-
+```
 The example above appends the text 'Opened!' to the content of the content div for the opened item.
 
 The class .on is also added to the active item so it can be styled and targeted in scripts.

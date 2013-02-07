@@ -1,0 +1,20 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+	width: 840px;
+	margin: 0 auto;
+}
+
+#accordion2 h2,
+#accordion2 p {
+	margin: 0;
+	padding: 0 5px;
+}
+
+#accordion2 .accordionButton {
+	background-color: #1085c9;
+	color: #fff;
+	cursor: pointer;
+}
