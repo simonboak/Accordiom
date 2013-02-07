@@ -2,7 +2,7 @@
 
 Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
 
-[View the demo](https://github.com/simonboak/Accordiom/blob/master/index.html)
+[View the demo](http://www.simonboak.co.uk/accordiom/)
  
 
 ##Get Started
