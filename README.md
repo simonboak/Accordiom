@@ -1,6 +1,6 @@
 #Accordiom - The Ultra Tiny Accordion
 
-Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
+Just 1.3kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
 
 [View the demo](http://www.simonboak.co.uk/accordiom/)
  
