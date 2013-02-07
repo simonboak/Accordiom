@@ -7,10 +7,10 @@ Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin an
 ##Get Started
 
 ###1. Include jQuery and accordiom.js
-
+```html
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="js/accordiom.js"></script>
-
+```
 
 ###2. HTML markup
 
@@ -30,6 +30,8 @@ Just 1.2kB minfied, and yes it's spelt with an 'm'. Single file jQuery plugin an
 			<p>Item 3 Content</p>
 		</div>
 	</div>
+
+
 ** The h2 tag isn't even needed - any HTML can be in the accordionButton and accordionContent.
 
 ###3. JavaScript
