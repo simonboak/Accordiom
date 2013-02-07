@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.1
+ * accordiom.js version 0.1.1
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -52,6 +52,7 @@
             // Hide the content, but conditionally leave the first one open
             if (options.showFirstItem) {
                 $(this).children('.accordionContent').not(':first').hide();
+                $(this).children('.accordionButton').first().addClass('on');
             } else {
                 $(this).children('.accordionContent').hide();
             }

@@ -1,0 +1,4 @@
+Version 0.1.1 7 Feb 2013
+- Fixed bug where if first item was set to be open but then clicked to close it, it would close and then reopen.
+
+Version 0.1 First release
