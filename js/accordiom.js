@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.1.1
+ * accordiom.js version 0.2
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -37,7 +37,8 @@
         speed: 500,
         showFirstItem: true,
         beforeChange: function () {},
-        afterchange: function () {}
+        afterchange: function () {},
+        onLoad: function () {}
     };
     
     $.fn.accordiom = function (options) {
@@ -55,6 +56,11 @@
                 $(this).children('.accordionButton').first().addClass('on');
             } else {
                 $(this).children('.accordionContent').hide();
+            }
+            
+            // Fire the onLoad callback once all's set up
+            if (options.onLoad) {
+	            options.onLoad.call(this, this);
             }
             
             // Bind events to the buttons

@@ -58,7 +58,11 @@
 			
 			$('#accordion2').accordiom({
 				speed: 100,
-				showFirstItem: false
+				showFirstItem: false,
+				onLoad: function (accordionButton) {
+					console.log('Accordiom loaded');
+					console.log(accordionButton);
+				}
 			});
 			
 			//$('#accordion1').accordiom();

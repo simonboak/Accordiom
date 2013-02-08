@@ -1,6 +1,6 @@
 #Accordiom - The Ultra Tiny Accordion
 
-Just 1.3kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
+Just 1.4kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
 
 [View the demo](http://www.simonboak.co.uk/accordiom/)
  
@@ -53,7 +53,8 @@ $('#accordion1').accordiom({
 	speed: 500, // Set the animation speed. 0 gives no animation
 	showFirstItem: false, // Either show or hide the first item when loading
 	beforeChange: function (accordionButton) {}, // Callback function called on click of the accordionButton before an item is hidden or shown
-	afterChange: function (accordionButton) {} // Callback function called after change of item
+	afterChange: function (accordionButton) {}, // Callback function called after change of item
+	onLoad: function (accordionButton) {} // Callback function called once the accordion is set up and event listeners in place
 });
 ```
 
