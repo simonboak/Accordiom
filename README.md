@@ -70,3 +70,5 @@ $('#accordion1').accordiom({
 The example above appends the text 'Opened!' to the content of the content div for the opened item.
 
 The class .on is also added to the active item so it can be styled and targeted in scripts.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/123151625a476883f1b3e163df4cb001 "githalytics.com")](http://githalytics.com/simonboak/Accordiom)
