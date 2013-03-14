@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.3
+ * accordiom.js version 0.1.1
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -37,8 +37,7 @@
         speed: 500,
         showFirstItem: true,
         beforeChange: function () {},
-        afterchange: function () {},
-        onLoad: function () {}
+        afterchange: function () {}
     };
     
     $.fn.accordiom = function (options) {
@@ -50,20 +49,12 @@
 	            options = $.accordiom.defaultOptions;
             }
             
-            // Handy functions need access to the speed option
-            $(this).data('accordiom-speed', options.speed);
-            
             // Hide the content, but conditionally leave the first one open
             if (options.showFirstItem) {
                 $(this).children('.accordionContent').not(':first').hide();
                 $(this).children('.accordionButton').first().addClass('on');
             } else {
                 $(this).children('.accordionContent').hide();
-            }
-            
-            // Fire the onLoad callback once all's set up
-            if (options.onLoad) {
-	            options.onLoad.call(this, this);
             }
             
             // Bind events to the buttons
@@ -93,28 +84,5 @@
             
         });
     };
-    
-    
-    // Function: show all accordion items
-    $.fn.accordiom.openAll = function (el) {
-        $(el).children('.accordionContent').slideDown($(el).data('accordiom-speed'));
-    };
-    
-    // Function: hide all accordion items
-    $.fn.accordiom.closeAll = function (el) {
-        $(el).children('.accordionContent').slideUp($(el).data('accordiom-speed'));
-    };
-    
-    // Function: open item n (zero indexed)
-    $.fn.accordiom.openItem = function (el, n) {
-        var nIndexCount = $(el).children('.accordionButton').length-1;
-        if ((n < 0) || (n > nIndexCount)) { // Quick error check
-            throw('Accordiom: No accordion item of index ' + n + ' exists');
-        } else {
-            $($(el).children('.accordionButton')[n]).trigger('click');
-        }
-    };
-    
-
     
 })(jQuery);

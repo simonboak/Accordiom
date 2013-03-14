@@ -1,3 +1,6 @@
+Version 0.3 14 Mar 2013
+- Added openAll, closeAll and openItem helper functions
+
 Version 0.2 8 Feb 2013
 - Added onLoad callback
 

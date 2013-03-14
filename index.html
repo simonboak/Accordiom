@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css">
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/accordiom.js"></script>
+	<script type="text/javascript" src="js/accordiom.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -65,15 +65,13 @@
 				}
 			});
 			
-			//$('#accordion1').accordiom();
+			$().accordiom.closeAll('#accordion2');
 			
-			/*,
-				beforeChange: function (accordionButton) {
-					$(accordionButton).hide();
-				},
-				afterChange: function (accordionButton) {
-					$(accordionButton).fadeIn(1000);
-				}*/
+			setTimeout(function () {
+    			$().accordiom.openItem('#accordion2', 2);
+			}, 2000);
+
+			
 		});
 	</script>
 

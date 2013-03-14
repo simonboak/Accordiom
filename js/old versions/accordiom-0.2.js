@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.3
+ * accordiom.js version 0.2
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -50,9 +50,6 @@
 	            options = $.accordiom.defaultOptions;
             }
             
-            // Handy functions need access to the speed option
-            $(this).data('accordiom-speed', options.speed);
-            
             // Hide the content, but conditionally leave the first one open
             if (options.showFirstItem) {
                 $(this).children('.accordionContent').not(':first').hide();
@@ -93,28 +90,5 @@
             
         });
     };
-    
-    
-    // Function: show all accordion items
-    $.fn.accordiom.openAll = function (el) {
-        $(el).children('.accordionContent').slideDown($(el).data('accordiom-speed'));
-    };
-    
-    // Function: hide all accordion items
-    $.fn.accordiom.closeAll = function (el) {
-        $(el).children('.accordionContent').slideUp($(el).data('accordiom-speed'));
-    };
-    
-    // Function: open item n (zero indexed)
-    $.fn.accordiom.openItem = function (el, n) {
-        var nIndexCount = $(el).children('.accordionButton').length-1;
-        if ((n < 0) || (n > nIndexCount)) { // Quick error check
-            throw('Accordiom: No accordion item of index ' + n + ' exists');
-        } else {
-            $($(el).children('.accordionButton')[n]).trigger('click');
-        }
-    };
-    
-
     
 })(jQuery);
