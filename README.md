@@ -78,7 +78,7 @@ From version 0.3, Accordiom includes 3 functions that can be useful when you wis
 ```javascript
 $().accordiom.openAll('#accordion1'); // Open all accordion items
 $().accordiom.closeAll('#accordion1'); // Close the content of all items
-$().accordiom.openItem('#accordion1', 2); // Open item of specified number (this example is 0) and is 0 indexed
+$().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero indexed) so example will open 3rd item
 ```
 
 
