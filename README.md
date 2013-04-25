@@ -81,5 +81,16 @@ $().accordiom.closeAll('#accordion1'); // Close the content of all items
 $().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero indexed) so example will open 3rd item
 ```
 
+##Bugs
+There's a bug in IE7 (and probably 6) where odd things may happen to the content of your accordion if absolute positioning is used. Add this CSS to fix the issue:
+
+```css
+.accordionContent {
+    position: relative;
+    zoom: 1;
+}
+```
+
+*Just search Google for jQuery slideUp IE7 and you'll see others with the same bug*
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/123151625a476883f1b3e163df4cb001 "githalytics.com")](http://githalytics.com/simonboak/Accordiom)
