@@ -1,19 +1,19 @@
-#Accordiom - The Ultra Tiny Accordion
+# Accordiom - The Ultra Tiny Accordion
 
 Just 1.7kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin and no external stylesheet required.
 
 [View the demo](http://www.simonboak.co.uk/accordiom/)
  
 
-##Get Started
+## Get Started
 
-###1. Include jQuery and accordiom.js
+### 1. Include jQuery and accordiom.js
 ```html
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/accordiom.js"></script>
 ```
 
-###2. HTML markup
+### 2. HTML markup
 ```html
 <div id="accordion1">
 	<div class="accordionButton"><h2>Item 1</h2></div>
@@ -35,7 +35,7 @@ Just 1.7kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin a
 
 ** The h2 tag isn't even needed - any HTML can be in the accordionButton and accordionContent and the divs can be replaced with any other block level HTML5 element that would make more sense in your site.
 
-###3. JavaScript
+### 3. JavaScript
 ```html
 <script type="text/javascript">
 	$(document).ready( function () {
@@ -45,7 +45,7 @@ Just 1.7kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin a
 ```
 
 
-##Full Options
+## Full Options
 
 
 ```javascript
@@ -58,7 +58,7 @@ $('#accordion1').accordiom({
 });
 ```
 
-##Callbacks
+## Callbacks
 2 callback functions are defined in the options above. The argument passed to the function is the div with class .accordionButton that was clicked on and can be used like this:
 ```javascript
 $('#accordion1').accordiom({
@@ -72,7 +72,7 @@ The example above appends the text 'Opened!' to the content of the content div f
 The class .on is also added to the active item so it can be styled and targeted in scripts.
 
 
-##Functions
+## Functions
 From version 0.3, Accordiom includes 3 functions that can be useful when you wish to change the state of the accordion through JavaScript. They are used as follows:
 
 ```javascript
@@ -81,7 +81,7 @@ $().accordiom.closeAll('#accordion1'); // Close the content of all items
 $().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero indexed) so example will open 3rd item
 ```
 
-##Bugs
+## Bugs
 There's a bug in IE7 (and probably 6) where odd things may happen to the content of your accordion if absolute positioning is used. Add this CSS to fix the issue:
 
 ```css
@@ -92,5 +92,3 @@ There's a bug in IE7 (and probably 6) where odd things may happen to the content
 ```
 
 *Just search Google for jQuery slideUp IE7 and you'll see others with the same bug*
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/123151625a476883f1b3e163df4cb001 "githalytics.com")](http://githalytics.com/simonboak/Accordiom)
