@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css">
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/accordiom.min.js"></script>
+	<script type="text/javascript" src="js/accordiom.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -32,7 +32,7 @@
 		</div>
 	</div>
 	
-	<p>---</p>
+	<hr />
 	
 	<div id="accordion2">
 		<div class="accordionButton"><h2>Item 1</h2></div>
@@ -58,6 +58,8 @@
 			
 			$('#accordion2').accordiom({
 				speed: 100,
+				openAll: true,
+				autoClosing: false,
 				showFirstItem: false,
 				onLoad: function (accordionButton) {
 					console.log('Accordiom loaded');
@@ -65,11 +67,11 @@
 				}
 			});
 			
-			$().accordiom.closeAll('#accordion2');
+			/*$().accordiom.closeAll('#accordion2');
 			
 			setTimeout(function () {
     			$().accordiom.openItem('#accordion2', 2);
-			}, 2000);
+			}, 2000);*/
 
 			
 		});

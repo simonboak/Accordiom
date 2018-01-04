@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.3
+ * accordiom.js version 0.4
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -36,6 +36,8 @@
     $.accordiom.defaultOptions = {
         speed: 500,
         showFirstItem: true,
+        autoClosing: true,
+        openAll: false,
         beforeChange: function () {},
         afterchange: function () {},
         onLoad: function () {}
@@ -46,19 +48,25 @@
             (new $.accordiom(this, options));
             
             // For some reason the default options weren't being extended so I'll do it manually
-            if (!options) {
+            /*if (!options) {
 	            options = $.accordiom.defaultOptions;
-            }
+            }*/
+            options = $.extend({}, $.accordiom.defaultOptions, options);
+
             
             // Handy functions need access to the speed option
             $(this).data('accordiom-speed', options.speed);
             
             // Hide the content, but conditionally leave the first one open
-            if (options.showFirstItem) {
-                $(this).children('.accordionContent').not(':first').hide();
-                $(this).children('.accordionButton').first().addClass('on');
+            if (options.openAll) {
+	            $(this).children('.accordionButton').addClass('on');
             } else {
-                $(this).children('.accordionContent').hide();
+	            if (options.showFirstItem) {
+	                $(this).children('.accordionContent').not(':first').hide();
+	                $(this).children('.accordionButton').first().addClass('on');
+	            } else {
+	                $(this).children('.accordionContent').hide();
+	            }
             }
             
             // Fire the onLoad callback once all's set up
@@ -77,11 +85,15 @@
                 }
 
                 if ($(this).is('.on')) {
-                    $selectorEl.children('.accordionContent').slideUp(options.speed);
-                    $(this).removeClass('on');
+	                //$selectorEl.children('.accordionContent').slideUp(options.speed);
+	                $(this).next('.accordionContent').slideUp(options.speed);
+	                $(this).removeClass('on');
                 } else {
-                    $selectorEl.children('.accordionContent').slideUp(options.speed);
-                    $selectorEl.children('.accordionButton').removeClass('on');
+	                if (options.autoClosing) {
+                    	$selectorEl.children('.accordionContent').slideUp(options.speed);
+						$selectorEl.children('.accordionButton').removeClass('on');
+					} else {
+					}
                     $(this).next('.accordionContent').slideDown(options.speed);
                     $(this).addClass('on');
                 }
