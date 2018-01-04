@@ -84,6 +84,3 @@ $().accordiom.openAll('#accordion1'); // Open all accordion items
 $().accordiom.closeAll('#accordion1'); // Close the content of all items
 $().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero indexed) so example will open 3rd item
 ```
-
-
-*Just search Google for jQuery slideUp IE7 and you'll see others with the same bug*
