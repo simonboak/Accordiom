@@ -56,6 +56,7 @@ $('#accordion1').accordiom({
 	showFirstItem: false, // Either show or hide the first item when loading
 	openAll: false, // Change to true to show all items as open on load
 	autoClosing: true, // Change to false to disable the automatic closing of items when a new item is opened
+	buttonBelowContent: false, // Set to true if your <div class="accordionButton"> comes after it's <div class="accordionContent">
 	beforeChange: function (accordionButton) {}, // Callback function called on click of the accordionButton before an item is hidden or shown
 	afterChange: function (accordionButton) {}, // Callback function called after change of item
 	onLoad: function (accordionButton) {} // Callback function called once the accordion is set up and event listeners in place
@@ -84,3 +85,7 @@ $().accordiom.openAll('#accordion1'); // Open all accordion items
 $().accordiom.closeAll('#accordion1'); // Close the content of all items
 $().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero indexed) so example will open 3rd item
 ```
+
+## Changelog
+- Version 0.5 9th Oct 2019: Added buttonBelowContent option
+- Version 0.4 4th Jan 2018: Added openAll and autoClosing options

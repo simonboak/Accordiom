@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.5
+ * accordiom.js version 0.4
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -38,7 +38,6 @@
         showFirstItem: true,
         autoClosing: true,
         openAll: false,
-        buttonBelowContent: false,
         beforeChange: function () {},
         afterchange: function () {},
         onLoad: function () {}
@@ -78,30 +77,26 @@
             // Bind events to the buttons
             $(this).children('.accordionButton').on('click', function () {
             
-				// Grab the container element (which would be used in the initial selector)
-				var $selectorEl = $(this).parent('div');
-				
-				if (options.beforeChange) {
-					options.beforeChange.call(this, this); // sends the clicked accordion button element
-				}
+                // Grab the container element (which would be used in the initial selector)
+                var $selectorEl = $(this).parent('div');
 
-				if ($(this).is('.on')) {
-					//$selectorEl.children('.accordionContent').slideUp(options.speed);
-					$(this).next('.accordionContent').slideUp(options.speed);
-					$(this).removeClass('on');
-				} else {
-					if (options.autoClosing) {
-						$selectorEl.children('.accordionContent').slideUp(options.speed);
+                if (options.beforeChange) {
+                    options.beforeChange.call(this, this); // sends the clicked accordion button element
+                }
+
+                if ($(this).is('.on')) {
+	                //$selectorEl.children('.accordionContent').slideUp(options.speed);
+	                $(this).next('.accordionContent').slideUp(options.speed);
+	                $(this).removeClass('on');
+                } else {
+	                if (options.autoClosing) {
+                    	$selectorEl.children('.accordionContent').slideUp(options.speed);
 						$selectorEl.children('.accordionButton').removeClass('on');
-					} else {}
-					
-					if (options.buttonBelowContent) {
-						$(this).prev('.accordionContent').slideDown(options.speed);
 					} else {
-						$(this).next('.accordionContent').slideDown(options.speed);
 					}
-					$(this).addClass('on');
-				}
+                    $(this).next('.accordionContent').slideDown(options.speed);
+                    $(this).addClass('on');
+                }
                 
                 if (options.afterChange) {
                     options.afterChange.call(this, this); // sends the clicked accordion button element
