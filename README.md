@@ -87,5 +87,6 @@ $().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero
 ```
 
 ## Changelog
+- Version 0.5.1 10th Jun 2020: Fixed bug with buttonBelowContent option
 - Version 0.5 9th Oct 2019: Added buttonBelowContent option
 - Version 0.4 4th Jan 2018: Added openAll and autoClosing options

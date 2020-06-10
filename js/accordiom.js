@@ -1,5 +1,5 @@
 /*!
- * accordiom.js version 0.5
+ * accordiom.js version 0.5.1
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
@@ -87,7 +87,11 @@
 
 				if ($(this).is('.on')) {
 					//$selectorEl.children('.accordionContent').slideUp(options.speed);
-					$(this).next('.accordionContent').slideUp(options.speed);
+					if (options.buttonBelowContent) {
+						$(this).prev('.accordionContent').slideUp(options.speed);
+					} else {
+						$(this).next('.accordionContent').slideUp(options.speed);
+					}
 					$(this).removeClass('on');
 				} else {
 					if (options.autoClosing) {
