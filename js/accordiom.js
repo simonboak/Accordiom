@@ -1,11 +1,12 @@
 /*!
- * accordiom.js version 0.5.1
+ * accordiom.js version 0.6
  * http://github.com/simonboak/accordiom
  * Public Domain
  *
  */
 
 (function($){
+    var _accordiomId = 0;
     $.accordiom = function (el, options) {
         // To avoid scope issues, use 'base' instead of 'this'
         // to reference this class from internal events and functions.
@@ -53,18 +54,38 @@
 	            options = $.accordiom.defaultOptions;
             }*/
             options = $.extend({}, $.accordiom.defaultOptions, options);
-
             
             // Handy functions need access to the speed option
             $(this).data('accordiom-speed', options.speed);
+
+            // Set up ARIA attributes for accessibility
+            $(this).find('.accordionButton').each(function (index, element) {
+                $(element)
+                    .attr('id', 'Accordion_' + _accordiomId + '_Button_' + index)
+                    .attr('aria-expanded', 'false')
+                    .attr('aria-controls', 'Accordion_' + _accordiomId + '_Content_' + index);
+            });
+
+            $(this).find('.accordionContent').each(function (index, element) {
+                $(element)
+                    .attr('id', 'Accordion_' + _accordiomId + '_Content_' + index)
+                    .attr('aria-hidden', 'true')
+                    .attr('aria-labelledby', 'Accordion_' + _accordiomId + '_Button_' + index);
+            });
+            _accordiomId++;
             
             // Hide the content, but conditionally leave the first one open
             if (options.openAll) {
 	            $(this).children('.accordionButton').addClass('on');
+                $(this).children('.accordionButton').each(function () {
+                    updateAriaAttributes($(this), $(this).next('.accordionContent'), true);
+                });
             } else {
 	            if (options.showFirstItem) {
 	                $(this).children('.accordionContent').not(':first').hide();
 	                $(this).children('.accordionButton').first().addClass('on');
+                    updateAriaAttributes($(this).children('.accordionButton').first(), $(this).children('.accordionContent').first(), true);
+                    updateAriaAttributes($(this).children('.accordionButton').not(':first'), $(this).children('.accordionContent').not(':first'), false);
 	            } else {
 	                $(this).children('.accordionContent').hide();
 	            }
@@ -93,6 +114,7 @@
 						$(this).next('.accordionContent').slideUp(options.speed);
 					}
 					$(this).removeClass('on');
+					updateAriaAttributes($(this), $(this).next('.accordionContent'), false);
 				} else {
 					if (options.autoClosing) {
 						$selectorEl.children('.accordionContent').slideUp(options.speed);
@@ -105,6 +127,7 @@
 						$(this).next('.accordionContent').slideDown(options.speed);
 					}
 					$(this).addClass('on');
+                    updateAriaAttributes($(this), $(this).next('.accordionContent'), true);
 				}
                 
                 if (options.afterChange) {
@@ -119,11 +142,17 @@
     // Function: show all accordion items
     $.fn.accordiom.openAll = function (el) {
         $(el).children('.accordionContent').slideDown($(el).data('accordiom-speed'));
+        $(el).children('.accordionButton').each(function () {
+            updateAriaAttributes($(this), $(this).next('.accordionContent'), true);
+        });
     };
     
     // Function: hide all accordion items
     $.fn.accordiom.closeAll = function (el) {
         $(el).children('.accordionContent').slideUp($(el).data('accordiom-speed'));
+        $(el).children('.accordionButton').each(function () {
+            updateAriaAttributes($(this), $(this).next('.accordionContent'), false);
+        });
     };
     
     // Function: open item n (zero indexed)
@@ -135,6 +164,12 @@
             $($(el).children('.accordionButton')[n]).trigger('click');
         }
     };
+
+    // Private Function: update the ARIA attributes for a given item based on whether it is open or closed
+    function updateAriaAttributes($button, $content, isOpen) {
+		$button.attr('aria-expanded', isOpen);
+		$content.attr('aria-hidden', !isOpen).attr('tabindex', isOpen ? '0' : '-1');
+	}
     
 
     

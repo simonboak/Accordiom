@@ -16,17 +16,17 @@ Just 1.8kB minified, and yes it's spelt with an 'm'. Single file jQuery plugin a
 ### 2. HTML markup
 ```html
 <div id="accordion1">
-	<div class="accordionButton"><h2>Item 1</h2></div>
+	<button class="accordionButton"><h2>Item 1</h2></button>
 	<div class="accordionContent">
 		<p>Item 1 Content</p>
 	</div>
 	
-	<div class="accordionButton"><h2>Item 2</h2></div>
+	<button class="accordionButton"><h2>Item 2</h2></button>
 	<div class="accordionContent">
 		<p>Item 2 Content</p>
 	</div>
 	
-	<div class="accordionButton"><h2>Item 3</h2></div>
+	<button class="accordionButton"><h2>Item 3</h2></button>
 	<div class="accordionContent">
 		<p>Item 3 Content</p>
 	</div>
@@ -87,6 +87,7 @@ $().accordiom.openItem('#accordion1', 2); // Open item of specified number (zero
 ```
 
 ## Changelog
+- Version 0.6 2nd Jul 2026: Added ARIA accessility attribues. Accordion buttons are now real `<button>` elements.
 - Version 0.5.1 10th Jun 2020: Fixed bug with buttonBelowContent option
 - Version 0.5 9th Oct 2019: Added buttonBelowContent option
 - Version 0.4 4th Jan 2018: Added openAll and autoClosing options
