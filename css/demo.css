@@ -2,6 +2,19 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
+button {
+	display: block;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	background: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+}
+
 #wrapper {
 	width: 840px;
 	margin: 0 auto;
